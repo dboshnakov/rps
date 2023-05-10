@@ -1,13 +1,14 @@
 function game() {
     let playerWins = 0;
     let computerWins = 0;
-    for (let i = 1; i < 6; i++) {
+    for (let i = 1; playerWins !== 3 && computerWins !== 3; i++) {
         let result = playRound();
-        if (result.includes("win")) {
+        if (result.includes("win")) {   
             playerWins ++;
-        } else {
+        } else if (result.includes("lost")) {
             computerWins ++;
-        }
+        } 
+        console.log(result);
         console.log(`Player wins: ${playerWins}. Computer wins: ${computerWins}`);
     }
     if (playerWins > computerWins) {
@@ -26,6 +27,9 @@ function game() {
 function playRound() {
     let computerChoice = getComputerChoice();
     let playerChoice = getPlayerChoice();
+    console.log();
+    console.log(`Your choice: ${playerChoice}`);
+    console.log(`Computer's choice: ${computerChoice}`);
     //compare the choices and determine the winner (or draw)
     if (computerChoice === playerChoice) {
         return (`Both you and the computer picked ${playerChoice}. Draw.`)
@@ -40,7 +44,7 @@ function playRound() {
     } else if (computerChoice === "scissors" && playerChoice === "rock") {
         return("Rock beats scissors. You win!");
     } else if (computerChoice === "scissors" && playerChoice === "paper") {
-        return("Scissors beats paper. You lose!");
+        return("Scissors beats paper. You lost!");
     }
 }
 
