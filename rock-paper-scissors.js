@@ -53,10 +53,6 @@ function getPlayerChoice() {
     const choice = prompt("Type out your weapon of choice: \rrock \rpaper \rscissors");
     // handle case where input of the user is null (closing the prompt with escape/cancel)
     if (choice === null) {
-        //show an alert pop-up indicating the input is not valid
-        alert("Invalid input.");
-        //trigger the function again
-        return getPlayerChoice();
     // convert the user's input to lowercase & compare to the expected input options
     // if true - return the user's input in lowercase 
     } else if (choice.toLowerCase() === "rock" || choice.toLowerCase() === "paper" || choice.toLowerCase() === "scissors") { 
