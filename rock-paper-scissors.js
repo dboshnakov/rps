@@ -1,21 +1,27 @@
 function game() {
+    //initialize the score for each player
     let playerWins = 0;
     let computerWins = 0;
+    //play rounds of the game until either the player of the computer reaches 3 wins
     for (let i = 1; playerWins !== 3 && computerWins !== 3; i++) {
         let result = playRound();
+        //based on the returned value of the playRound function, determine the winner and increment their 'win' value
         if (result.includes("win")) {   
             playerWins ++;
         } else if (result.includes("lost")) {
             computerWins ++;
         } 
+        //after incrementing the winner's score show the result of the round
         console.log(result);
         console.log(`Player wins: ${playerWins}. Computer wins: ${computerWins}`);
     }
+    //after the loop ends, based on each participant's score, determine the overall winner
     if (playerWins > computerWins) {
         console.log(`End result: You win! ${playerWins}:${computerWins}`);
     } else {
         console.log(`End result: Computer wins! ${playerWins}:${computerWins}`);
     }
+    //after determining the winner, prompt the user to decide if they want to start a new game or not
     if (confirm("Play a new game?")) {
         game();
     } else {
@@ -25,9 +31,13 @@ function game() {
 
 
 function playRound() {
+    //get each participant's choice by triggering the respective functions
     let computerChoice = getComputerChoice();
     let playerChoice = getPlayerChoice();
+    //handle case where the user has cancelled the game 
     if (playerChoice.includes("Cancelled.")) {
+        //-> do nothing
+    //otherwise, show both choices
     } else {
         console.log();
         console.log(`Your choice: ${playerChoice}`);
