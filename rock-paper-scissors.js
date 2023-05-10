@@ -27,24 +27,27 @@ function game() {
 function playRound() {
     let computerChoice = getComputerChoice();
     let playerChoice = getPlayerChoice();
-    console.log();
-    console.log(`Your choice: ${playerChoice}`);
-    console.log(`Computer's choice: ${computerChoice}`);
-    //compare the choices and determine the winner (or draw)
-    if (computerChoice === playerChoice) {
-        return (`Both you and the computer picked ${playerChoice}. Draw.`)
-    } else if (computerChoice === "rock" && playerChoice === "paper") {
-        return("Paper beats rock. You win!");
-    } else if (computerChoice === "rock" && playerChoice === "scissors") {
-        return("Rock beats scissors. You lost!");
-    } else if (computerChoice === "paper" && playerChoice === "rock") {
-        return("Paper beats rock. You lost!");
-    } else if (computerChoice === "paper" && playerChoice === "scissors") {
-        return("Scissors beats paper. You win!");
-    } else if (computerChoice === "scissors" && playerChoice === "rock") {
-        return("Rock beats scissors. You win!");
-    } else if (computerChoice === "scissors" && playerChoice === "paper") {
-        return("Scissors beats paper. You lost!");
+    if (playerChoice.includes("Cancelled.")) {
+    } else {
+        console.log();
+        console.log(`Your choice: ${playerChoice}`);
+        console.log(`Computer's choice: ${computerChoice}`);
+        //compare the choices and determine the winner (or draw)
+        if (computerChoice === playerChoice) {
+            return (`Both you and the computer picked ${playerChoice}. Draw.`)
+        } else if (computerChoice === "rock" && playerChoice === "paper") {
+            return("Paper beats rock. You win!");
+        } else if (computerChoice === "rock" && playerChoice === "scissors") {
+            return("Rock beats scissors. You lost!");
+        } else if (computerChoice === "paper" && playerChoice === "rock") {
+            return("Paper beats rock. You lost!");
+        } else if (computerChoice === "paper" && playerChoice === "scissors") {
+            return("Scissors beats paper. You win!");
+        } else if (computerChoice === "scissors" && playerChoice === "rock") {
+            return("Rock beats scissors. You win!");
+        } else if (computerChoice === "scissors" && playerChoice === "paper") {
+            return("Scissors beats paper. You lost!");
+        }
     }
 }
 
@@ -53,6 +56,7 @@ function getPlayerChoice() {
     const choice = prompt("Type out your weapon of choice: \rrock \rpaper \rscissors");
     // handle case where input of the user is null (closing the prompt with escape/cancel)
     if (choice === null) {
+        console.log("Game cancelled.");
     // convert the user's input to lowercase & compare to the expected input options
     // if true - return the user's input in lowercase 
     } else if (choice.toLowerCase() === "rock" || choice.toLowerCase() === "paper" || choice.toLowerCase() === "scissors") { 
