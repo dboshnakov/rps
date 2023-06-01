@@ -1,0 +1,113 @@
+body {
+    display: flex;
+    flex-direction: column;
+    background: #f5f4f0;
+    font-family: 'Caveat', cursive;
+    font-size: 1.8rem;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    padding-bottom: 0;
+    gap: 1rem;
+    font-size: 4rem;
+}
+
+.initial {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.game {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    gap: 1rem;
+    padding-top: 0;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+    color: black;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.text div {
+    padding: 0.125rem;
+    font-size: 2rem;
+    color: black;
+    font-weight: normal;
+    height: 1em;
+}
+
+p {
+    font-size: 1.6em;
+    padding: 0;
+    margin: 0;
+    font-weight: normal;
+}
+
+button {
+    font-family: 'Caveat', cursive;
+    font-size: 2em;
+    font-weight: bold;
+    background: rgb(70, 70, 70);
+    color: #f5f4f0;
+    border-radius: 12px;
+    text-align: center;
+    padding-left: 0.4em;
+    padding-right: 0.6em;
+}
+
+input {
+    font-family: 'Caveat', cursive;
+    font-size: 1.8rem;
+    font-weight: bolder;
+    width: 3rem;
+    background: #f5f4f0;
+    color: #535353;
+    border: none;
+    padding: 0px;
+    min-width: 1em;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.img {
+    flex: 0 1 auto;
+}
+
+#outcome {
+    font-weight: bold;
+    font-size: 2em;
+    padding-bottom: 0.4em;
+}
+
+.choices button {
+    font-size: 1.8em;
+}
+
+button:disabled {
+    opacity: 50%;
+}
+
+input:focus {
+    outline: none;
+}

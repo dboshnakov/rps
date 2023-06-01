@@ -5,11 +5,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+    <script src="rock-paper-scissors.js" defer></script>
 </head>
 <body>
-    <script src="rock-paper-scissors.js">
-        
-    </script>
-    <button onclick="game()">Start game</button>
+    <div class="main">
+        A simple game of <span>rock, paper, scissors.</span>
+        <img class="img 1" draggable="false" src="rock-paper-scissors-items.png">
+    </div>
+    <div class="initial">
+        <div class="text">
+            <p>Game settings:</p>
+            <label for="rounds">
+                First to 
+                <input 
+                    id="rounds" 
+                    inputmode="numeric" 
+                    type="number" 
+                    value="3" 
+                    min="1" 
+                    max="10" 
+                    onKeydown="return false"
+                >
+                wins
+            </label>
+        </div>
+        <button class="start"  onclick="startGame(getElementById('rounds').value)">Start game</button>
+    </div>
+    
+    <div class="game hidden">
+        <div class="choices">
+            <button class="rock" onclick="playRound('rock')">Rock</button>
+            <button class="paper" onclick="playRound('paper')">Paper</button>
+            <button class="scissors" onclick="playRound('scissors')">Scissors</button>
+        </div>
+        <div class="text">
+            <div id="end"></div>
+            <div id="score"></div>
+            <div id="outcome"></div>
+            <button class="restart hidden" onclick="newGame()">New game</button>
+        </div>
+    </div>
 </body>
 </html>
