@@ -4,6 +4,8 @@ body {
     background: #f5f4f0;
     font-family: 'Caveat', cursive;
     font-size: 1.8rem;
+    min-height: 100vh;
+    margin: 0;
 }
 
 .main {
@@ -110,4 +112,25 @@ button:disabled {
 
 input:focus {
     outline: none;
+}
+
+.footer {
+    display: flex;
+    background: #b3b2b0;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    gap: 0.2em;
+    margin-top: auto;
+    flex-shrink: 0;
+    font-size: 0.8em;
+}
+
+.content {
+    flex-grow: 1;
+}
+
+.footer p {
+    font-weight: bold;
+    font-size: 0.8em;
 }
