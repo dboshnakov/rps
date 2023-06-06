@@ -1,9 +1,11 @@
-let roundsInput = document.querySelector("#rounds");
+
 
 
 let playerScore = 0;
 let computerScore = 0;
 let roundsToWin = 3;
+const roundsInput = document.querySelector("#rounds");
+roundsInput.textContent = roundsToWin;
 const choice1 = document.querySelector(".rock");
 const choice2 = document.querySelector(".paper");
 const choice3 = document.querySelector(".scissors");
@@ -68,8 +70,21 @@ function checkWinner(playerScore,computerScore, roundsToWin) {
     } 
 }
 
-function startGame(userInput) {
-    roundsToWin = userInput;
+function roundsDown() {
+    if (roundsToWin !==1) {
+        roundsToWin--;
+        roundsInput.textContent = roundsToWin;
+    }
+}
+
+function roundsUp() {
+    if (roundsToWin !== 10) {
+        roundsToWin++;
+        roundsInput.textContent = roundsToWin;
+    }
+}
+
+function startGame(roundsToWin) {
     game.classList.remove("hidden");
     start.classList.add("hidden");
     enableChoices();
@@ -109,3 +124,4 @@ function getComputerChoice() {
     //convert the random number to one of the expected input options
     return (computerChoice === 1 ? "rock" : computerChoice === 2 ? "paper" : "scissors");
 }
+

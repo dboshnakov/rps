@@ -18,21 +18,16 @@
         <div class="initial">
             <div class="text">
                 <p>Game settings:</p>
-                <label for="rounds">
-                    First to 
-                    <input 
-                        id="rounds" 
-                        inputmode="numeric" 
-                        type="number" 
-                        value="3" 
-                        min="1" 
-                        max="10" 
-                        onKeydown="return false"
-                    >
-                    wins
+                    Rounds to win: 
+                    <div class="rounds">
+                        <button class="down" onclick="roundsDown()">-</button>
+                        <div id="rounds"></div>
+                        <button class="up" onclick="roundsUp()">+</button>
+                    </div>
+                    
                 </label>
             </div>
-            <button class="start"  onclick="startGame(getElementById('rounds').value)">Start game</button>
+            <button class="start"  onclick="startGame(roundsToWin)">Start game</button>
         </div>
         <div class="game hidden">
             <div class="choices">
@@ -45,6 +40,7 @@
                 <div id="score"></div>
                 <div id="outcome"></div>
                 <button class="restart hidden" onclick="newGame()">New game</button>
+                <div></div>
             </div>
         </div>
     </div>
