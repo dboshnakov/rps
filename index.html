@@ -14,7 +14,11 @@
     <div class="content">
         <div class="main">
             A simple game of <span>rock, paper, scissors</span>
-            <img class="img 1" draggable="false" src="rock-paper-scissors-items.png">
+            <div class="display">
+                <img src="images/rock.png" draggable="false">
+                <img src="images/paper.png" draggable="false">
+                <img src="images/scissors.png" draggable="false">
+            </div>
         </div>
         <div class="initial">
             <div class="text">
@@ -31,10 +35,13 @@
             <button class="start"  onclick="startGame(roundsToWin)">Start game</button>
         </div>
         <div class="game hidden">
+            <div class="text">
+                Make your choice:
+            </div>
             <div class="choices">
-                <button class="rock" onclick="playRound('rock')">Rock</button>
-                <button class="paper" onclick="playRound('paper')">Paper</button>
-                <button class="scissors" onclick="playRound('scissors')">Scissors</button>
+                <img class="rock" src="images/rock.png" draggable="false"  onclick="playRound('rock')">
+                <img class="paper" src="images/paper.png" draggable="false"  onclick="playRound('rock')">
+                <img class="scissors" src="images/scissors.png" draggable="false"  onclick="playRound('rock')">
             </div>
             <div class="text">
                 <div id="end"></div>

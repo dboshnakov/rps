@@ -9,10 +9,12 @@ roundsInput.textContent = roundsToWin;
 const choice1 = document.querySelector(".rock");
 const choice2 = document.querySelector(".paper");
 const choice3 = document.querySelector(".scissors");
+const choices = document.querySelector(".choices");
 const game = document.querySelector('.game');
 const outcome = document.querySelector('#outcome');
 const score = document.querySelector('#score');
 const end = document.querySelector('#end');
+const intro = document.querySelector('.main');
 const start = document.querySelector('.initial');
 const restart = document.querySelector('.restart'); 
 
@@ -87,6 +89,7 @@ function roundsUp() {
 function startGame(roundsToWin) {
     game.classList.remove("hidden");
     start.classList.add("hidden");
+    intro.classList.add("hidden");
     enableChoices();
     end.textContent =`First to ${roundsToWin} out of ${(roundsToWin*2)-1}`;
     outcome.textContent = ` `;
@@ -96,19 +99,28 @@ function startGame(roundsToWin) {
 function newGame() {
     game.classList.add("hidden");
     start.classList.remove("hidden");
+    intro.classList.remove("hidden");
     clearFields();
 }
 
 function disableChoices() {
-    choice1.setAttribute("disabled", true);
-    choice2.setAttribute("disabled", true);
-    choice3.setAttribute("disabled", true);
+    choice1.setAttribute("onclick", false);
+    choice2.setAttribute("onclick", false);
+    choice3.setAttribute("onclick", false);
+    //choice1.classList.add("disabled");
+    //choice2.classList.add("disabled");
+    //choice3.classList.add("disabled");
+    choices.classList.add("disabled");
 }
 
 function enableChoices() {
-    choice1.removeAttribute("disabled");
-    choice2.removeAttribute("disabled");
-    choice3.removeAttribute("disabled");
+    choice1.setAttribute("onclick", "playRound('rock')");
+    choice2.setAttribute("onclick", "playRound('paper')");
+    choice3.setAttribute("onclick", "playRound('scissors')");
+    //choice1.classList.remove("disabled");
+    //choice2.classList.remove("disabled");
+    //choice3.classList.remove("disabled");
+    choices.classList.remove("disabled");
 }
 
 function clearFields() {
@@ -124,4 +136,3 @@ function getComputerChoice() {
     //convert the random number to one of the expected input options
     return (computerChoice === 1 ? "rock" : computerChoice === 2 ? "paper" : "scissors");
 }
-

@@ -104,14 +104,6 @@ button {
     padding-bottom: 0.4em;
 }
 
-.choices button {
-    font-size: min(5vw,1.8em);
-    flex-wrap: wrap;
-}
-
-button:disabled {
-    opacity: 50%;
-}
 
 input:focus {
     outline: none;
@@ -132,8 +124,7 @@ input:focus {
     gap: 0.2em;
     margin-top: auto;
     flex-shrink: 0;
-    font-size: 0.8em;
-    
+    font-size: 0.8em;  
 }
 
 .content {
@@ -174,3 +165,37 @@ input:focus {
     font-weight: bold;
     font-size: 0.8em;
 } 
+
+.user-choice {
+    -webkit-filter: drop-shadow(5px 5px 0 blue)
+                    drop-shadow(-5px 5px 0 blue)
+                    drop-shadow(5px -5px 0 blue)
+                    drop-shadow(-5px -5px 0 blue);
+}
+
+.comp-choice {
+    -webkit-filter: drop-shadow(5px 5px 0 red)
+                    drop-shadow(-5px 5px 0 red)
+                    drop-shadow(5px -5px 0 red)
+                    drop-shadow(-5px -5px 0 red);
+}
+
+.both-choice {
+    -webkit-filter: drop-shadow(5px 5px 0 blue)
+                    drop-shadow(-5px 5px 0 blue)
+                    drop-shadow(5px -5px 0 red)
+                    drop-shadow(-5px -5px 0 red);
+}
+
+.choices img:hover {
+    -webkit-filter: drop-shadow(1px 1px 0 rgb(107, 107, 107))
+                    drop-shadow(-1px 1px 0 rgb(107, 107, 107));
+}
+
+.disabled {
+    opacity: 50%;
+}
+
+.disabled img:hover {
+    all: initial;
+}
