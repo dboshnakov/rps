@@ -35,7 +35,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-top: 1em;
+    padding-top: 0.4em;
     gap: 1rem;
 }
 
@@ -96,6 +96,7 @@ button {
     flex: 0 1 auto;
     padding: 0em;
     max-width: 100%;
+    max-height: 100%;
 }
 
 #outcome {
@@ -166,39 +167,6 @@ input:focus {
     font-size: 0.8em;
 } 
 
-.user-choice {
-    -webkit-filter: drop-shadow(5px 5px 0 blue)
-                    drop-shadow(-5px 5px 0 blue)
-                    drop-shadow(5px -5px 0 blue)
-                    drop-shadow(-5px -5px 0 blue);
-    filter: drop-shadow(5px 5px 0 blue)
-            drop-shadow(-5px 5px 0 blue)
-            drop-shadow(5px -5px 0 blue)
-            drop-shadow(-5px -5px 0 blue);
-}
-
-.comp-choice {
-    -webkit-filter: drop-shadow(5px 5px 0 red)
-                    drop-shadow(-5px 5px 0 red)
-                    drop-shadow(5px -5px 0 red)
-                    drop-shadow(-5px -5px 0 red);
-    filter: drop-shadow(5px 5px 0 red)
-            drop-shadow(-5px 5px 0 red)
-            drop-shadow(5px -5px 0 red)
-            drop-shadow(-5px -5px 0 red);
-}
-
-.both-choice {
-    -webkit-filter: drop-shadow(5px 5px 0 blue)
-                    drop-shadow(-5px 5px 0 blue)
-                    drop-shadow(5px -5px 0 red)
-                    drop-shadow(-5px -5px 0 red);
-    filter: drop-shadow(5px 5px 0 blue)
-            drop-shadow(-5px 5px 0 blue)
-            drop-shadow(5px -5px 0 red)
-            drop-shadow(-5px -5px 0 red);
-}
-
 .choices img:hover {
     -webkit-filter: drop-shadow(1px 1px 0 rgb(107, 107, 107))
                     drop-shadow(-1px 1px 0 rgb(107, 107, 107));
@@ -211,5 +179,62 @@ input:focus {
 }
 
 .disabled img:hover {
-    all: initial;
+    -webkit-filter: drop-shadow(0px 0px 0 rgb(107, 107, 107));
+    filter: drop-shadow(0px 0px 0 rgb(107, 107, 107));
+}
+
+.choices {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-basis: auto;
+    justify-content: center;
+
+}
+
+.choices img {
+    max-width: 30%;
+}
+
+.display {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.display img{
+    max-width: 30%;
+}
+
+.mouse-scroll {
+    width: 1.2em;
+    height: 2em;
+    border: solid 3px rgba(70, 70, 70,0.5);
+    border-radius: 0.6em;
+    position: fixed;
+    bottom: 1em;
+    right: 0.4em;
+    margin-top: auto;
+}
+
+.mouse-scroll::before {
+    content: '';
+    width: 0.2em;
+    height: 0.2em;
+    border-radius: 50%;
+    background: rgb(70,70,70);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: scroll 2.5s infinite;
+}
+
+@keyframes scroll {
+    0% {
+        bottom: 20%;
+        opacity: 0.5;
+    }
+    100% {
+        bottom: 80%;
+        opacity: 0;
+    }
 }
