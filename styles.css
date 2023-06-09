@@ -238,3 +238,7 @@ input:focus {
         opacity: 0;
     }
 }
+
+p.bottom {
+    height: 0.1em;
+}
