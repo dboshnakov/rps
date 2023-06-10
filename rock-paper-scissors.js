@@ -1,4 +1,28 @@
 
+const bottom = document.querySelector("p.bottom");
+const scroller = document.querySelector(".mouse-scroll");
+
+window.addEventListener("load", function () {
+    console.log(window.innerHeight);
+    console.log(bottom.getBoundingClientRect().top);
+
+    if (bottom.getBoundingClientRect().top < this.window.innerHeight) {
+        scroller.classList.add("hidden");
+    } else {
+        scroller.classList.remove("hidden");
+    }
+})
+
+window.addEventListener("scroll", function () {
+    console.log(window.innerHeight);
+    console.log(bottom.getBoundingClientRect().top);
+
+    if (bottom.getBoundingClientRect().top < this.window.innerHeight) {
+        scroller.classList.add("hidden");
+    } else {
+        scroller.classList.remove("hidden");
+    }
+})
 
 
 let playerScore = 0;
@@ -136,28 +160,3 @@ function getComputerChoice() {
     //convert the random number to one of the expected input options
     return (computerChoice === 1 ? "rock" : computerChoice === 2 ? "paper" : "scissors");
 }
-
-const bottom = document.querySelector("p.bottom");
-const scroller = document.querySelector(".mouse-scroll");
-
-window.addEventListener("load", function () {
-    console.log(window.innerHeight);
-    console.log(bottom.getBoundingClientRect().top);
-
-    if (bottom.getBoundingClientRect().top < this.window.innerHeight) {
-        scroller.classList.add("hidden");
-    } else {
-        scroller.classList.remove("hidden");
-    }
-})
-
-window.addEventListener("scroll", function () {
-    console.log(window.innerHeight);
-    console.log(bottom.getBoundingClientRect().top);
-
-    if (bottom.getBoundingClientRect().top < this.window.innerHeight) {
-        scroller.classList.add("hidden");
-    } else {
-        scroller.classList.remove("hidden");
-    }
-})
