@@ -39,13 +39,26 @@
                 Make your choice:
             </div>
             <div class="choices">
-                <img class="rock" src="images/rock.png" draggable="false"  onclick="playRound('rock')">
-                <img class="paper" src="images/paper.png" draggable="false"  onclick="playRound('rock')">
-                <img class="scissors" src="images/scissors.png" draggable="false"  onclick="playRound('rock')">
+                <div class="choice rock">
+                    <img class="rock" src="images/rock.png" draggable="false">
+                    <div class="selected rock"></div>
+                </div>
+                <div class="choice paper">
+                    <img class="paper" src="images/paper.png" draggable="false">
+                    <div class="selected paper"></div>
+                </div>
+                <div class="choice scissors">
+                    <img class="scissors" src="images/scissors.png" draggable="false">
+                    <div class="selected scissors"></div>
+                </div>
             </div>
             <div class="text">
                 <div id="end"></div>
-                <div id="score"></div>
+                <div class="score">
+                    <div id="playerTag">Player</div>
+                    <div id="score"></div>
+                    <div id="computerTag">Computer</div>
+                </div>
                 <div id="outcome"></div>
                 <button class="restart hidden" onclick="newGame()">New game</button>
                 <div></div>
