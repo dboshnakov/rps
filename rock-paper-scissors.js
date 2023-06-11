@@ -1,30 +1,3 @@
-
-const bottom = document.querySelector("p.bottom");
-const scroller = document.querySelector(".mouse-scroll");
-
-window.addEventListener("load", function () {
-    console.log(window.innerHeight);
-    console.log(bottom.getBoundingClientRect().top);
-
-    if (bottom.getBoundingClientRect().top < this.window.innerHeight) {
-        scroller.classList.add("hidden");
-    } else {
-        scroller.classList.remove("hidden");
-    }
-})
-
-window.addEventListener("scroll", function () {
-    console.log(window.innerHeight);
-    console.log(bottom.getBoundingClientRect().top);
-
-    if (bottom.getBoundingClientRect().top < this.window.innerHeight) {
-        scroller.classList.add("hidden");
-    } else {
-        scroller.classList.remove("hidden");
-    }
-})
-
-
 let playerScore = 0;
 let computerScore = 0;
 let roundsToWin = 3;
@@ -42,10 +15,11 @@ const intro = document.querySelector('.main');
 const start = document.querySelector('.initial');
 const restart = document.querySelector('.restart'); 
 
+
+
 function playRound(playerChoice) {
     //get each participant's choice by triggering the respective functions
     let computerChoice = getComputerChoice();
-    
     
     if (computerChoice === playerChoice) {
         outcome.textContent = `Both you and the computer picked ${playerChoice}. Draw.`
@@ -69,23 +43,27 @@ function playRound(playerChoice) {
         computerScore++;
     }
     score.textContent = `Player ${playerScore} : ${computerScore} Computer`;
-    
-    if (checkWinner(playerScore,computerScore,roundsToWin) === "player") {        
-        outcome.textContent = "You win!";
-        playerScore=0;
-        computerScore=0;
-        end.textContent = "Final score:";
-        disableChoices()
-        restart.classList.remove("hidden");
-    } else if (checkWinner(playerScore,computerScore,roundsToWin) === "computer") {
-        outcome.textContent = "You lose! :(";
-        playerScore=0;
-        computerScore=0;
-        end.textContent = "Final score:";
-        disableChoices()
-        restart.classList.remove("hidden");
-    }
 
+    endGame(checkWinner(playerScore,computerScore,roundsToWin));
+}
+
+function endGame(winner) {
+    if (winner === "player") {
+        outcome.textContent = "You win!";
+        resetGameStats();
+    } else if (winner === "computer"){
+        outcome.textContent = "You lose! :(";
+        resetGameStats();
+    }
+    
+}
+
+function resetGameStats() {
+    playerScore=0;
+    computerScore=0;
+    end.textContent = "Final score:";
+    disableChoices()
+    restart.classList.remove("hidden");
 }
 
 function checkWinner(playerScore,computerScore, roundsToWin) {
@@ -159,4 +137,29 @@ function getComputerChoice() {
     const computerChoice =  Math.floor(Math.random() * (4 - 1)+ 1);
     //convert the random number to one of the expected input options
     return (computerChoice === 1 ? "rock" : computerChoice === 2 ? "paper" : "scissors");
+}
+
+const bottom = document.querySelector("p.bottom");
+const scroller = document.querySelector(".mouse-scroll");
+
+window.addEventListener("load", toggleScrollHint);
+window.addEventListener("scroll", reverseScrollHint);
+window.addEventListener("resize", toggleScrollHint);
+
+function toggleScrollHint() {
+    if (bottom.getBoundingClientRect().top < this.window.innerHeight) {
+        scroller.classList.add("hidden");
+    } else {
+        scroller.classList.remove("hidden");
+    }
+}
+
+function reverseScrollHint() {
+    if (bottom.getBoundingClientRect().top < this.window.innerHeight) {
+        scroller.classList.add("bottom");
+        scroller.classList.remove("top");
+    } else {
+        scroller.classList.add("top");
+        scroller.classList.remove("bottom");
+    }
 }

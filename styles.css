@@ -206,35 +206,62 @@ input:focus {
 }
 
 .mouse-scroll {
-    width: 1.2em;
-    height: 2em;
-    border: solid 3px rgba(70, 70, 70,0.5);
-    border-radius: 0.6em;
+    width: 5vw;
+    height: 10vw;
+    border: solid 0.5vw rgba(70, 70, 70,0.5);
+    border-radius: 2.5vw;
     position: fixed;
     bottom: 1em;
     right: 0.4em;
     margin-top: auto;
 }
 
-.mouse-scroll::before {
+.mouse-scroll.top::before {
     content: '';
-    width: 0.2em;
-    height: 0.2em;
+    width: 1vw;
+    height: 1vw;
     border-radius: 50%;
     background: rgb(70,70,70);
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    animation: scroll 2.5s infinite;
+    animation-name: scroll1;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
 }
 
-@keyframes scroll {
+.mouse-scroll.bottom::before {
+    content: '';
+    width: 1vw;
+    height: 1vw;
+    border-radius: 50%;
+    background: rgb(70,70,70);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    animation-name: scroll2;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes scroll1 {
     0% {
         bottom: 20%;
         opacity: 0.5;
     }
     100% {
         bottom: 80%;
+        opacity: 0;
+    }
+}
+
+@keyframes scroll2 {
+    0% {
+        bottom: 80%;
+        opacity: 0.5;
+    }
+    100% {
+        bottom: 20%;
         opacity: 0;
     }
 }
