@@ -187,6 +187,9 @@ function getComputerChoice() {
 
 const bottom = document.querySelector("p.bottom");
 const scroller = document.querySelector(".mouse-scroll");
+const topBody = document.querySelector("body");
+
+console.log(topBody.getBoundingClientRect().top);
 
 window.addEventListener("load", toggleScrollHint);
 window.addEventListener("scroll", reverseScrollHint);
@@ -195,6 +198,8 @@ window.addEventListener("resize", toggleScrollHint);
 function toggleScrollHint() {
     if (bottom.getBoundingClientRect().top < this.window.innerHeight) {
         scroller.classList.add("hidden");
+    } else if (topBody.getBoundingClientRect().top < 0) {
+        scroller.classList.remove("hidden");
     } else {
         scroller.classList.remove("hidden");
     }

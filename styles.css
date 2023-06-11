@@ -110,7 +110,7 @@ input:focus {
     outline: none;
 }
 
-.footer {
+footer {
     display: flex;
     position: fixed;
     left: 0;
@@ -125,7 +125,8 @@ input:focus {
     gap: 0.2em;
     margin-top: auto;
     flex-shrink: 0;
-    font-size: 0.8em;  
+    font-size: 0.8em;
+     
 }
 
 .content {
