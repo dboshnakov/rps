@@ -20,15 +20,13 @@ const restart = document.querySelector('.restart');
 let computerChoice;
 let playerChoice;
 
-enableChoices();
-
 function playRound(playerChoice) {
+    enableChoices();
     //get each participant's choice by triggering the respective functions
     let computerChoice = getComputerChoice();
     clearChoice();
     markChoice("player",playerChoice);
     markChoice("computer",computerChoice);
-
     if (computerChoice === playerChoice) {
         outcome.textContent = `Both you and the computer picked ${playerChoice}. Draw.`
     } else if (computerChoice === "rock" && playerChoice === "paper") {
@@ -55,40 +53,6 @@ function playRound(playerChoice) {
     endGame(checkWinner(playerScore,computerScore,roundsToWin));
 }
 
-
-function markChoice(player, selection) {
-    if (player === "player") {
-        switch (selection) {
-            case 'rock':
-                console.log("Player ROCK");
-                rockMark.classList.add("player");
-                break;
-            case 'paper':
-                console.log("Player PAPER");
-                paperMark.classList.add("player");
-                break;
-            case 'scissors':
-                console.log("Player SCISSORS");
-                scissorsMark.classList.add("player");
-                break;
-        }
-    } else if (player === "computer") {
-        switch (selection) {
-            case 'rock':
-                console.log("Computer ROCK");
-                rockMark.classList.add("computer");
-                break;
-            case 'paper':
-                console.log("Computer PAPER");
-                paperMark.classList.add("computer");
-                break;
-            case 'scissors':
-                console.log("Computer SCISSORS");
-                scissorsMark.classList.add("computer");
-        }
-    }
-}
-
 function clearChoice() {
     rockMark.classList.remove("player");
     paperMark.classList.remove("player");
@@ -106,7 +70,6 @@ function endGame(winner) {
         outcome.textContent = "You lose! :(";
         resetGameStats();
     }
-    
 }
 
 function resetGameStats() {
@@ -185,6 +148,7 @@ function getComputerChoice() {
     return (computerChoice === 1 ? "rock" : computerChoice === 2 ? "paper" : "scissors");
 }
 
+//scroll hint
 const bottom = document.querySelector("p.bottom");
 const scroller = document.querySelector(".mouse-scroll");
 const topBody = document.querySelector("body");
@@ -210,5 +174,39 @@ function reverseScrollHint() {
     } else {
         scroller.classList.add("top");
         scroller.classList.remove("bottom");
+    }
+}
+
+//markers on player/computer choice
+function markChoice(player, selection) {
+    if (player === "player") {
+        switch (selection) {
+            case 'rock':
+                console.log("Player ROCK");
+                rockMark.classList.add("player");
+                break;
+            case 'paper':
+                console.log("Player PAPER");
+                paperMark.classList.add("player");
+                break;
+            case 'scissors':
+                console.log("Player SCISSORS");
+                scissorsMark.classList.add("player");
+                break;
+        }
+    } else if (player === "computer") {
+        switch (selection) {
+            case 'rock':
+                console.log("Computer ROCK");
+                rockMark.classList.add("computer");
+                break;
+            case 'paper':
+                console.log("Computer PAPER");
+                paperMark.classList.add("computer");
+                break;
+            case 'scissors':
+                console.log("Computer SCISSORS");
+                scissorsMark.classList.add("computer");
+        }
     }
 }
