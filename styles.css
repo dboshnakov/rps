@@ -84,6 +84,7 @@ button {
     text-align: center;
     padding-left: 0.4em;
     padding-right: 0.6em;
+    cursor: pointer;
 }
 
 
@@ -173,6 +174,7 @@ footer {
                     drop-shadow(-2px 2px 0 rgb(107, 107, 107));
     filter: drop-shadow(2px 2px 0 rgb(107, 107, 107))
             drop-shadow(-2px 2px 0 rgb(107, 107, 107));
+    cursor: pointer;
 }
 
 .disabled {
@@ -182,6 +184,7 @@ footer {
 .disabled img:hover {
     -webkit-filter: drop-shadow(0px 0px 0 rgb(107, 107, 107));
     filter: drop-shadow(0px 0px 0 rgb(107, 107, 107));
+    cursor: default;
 }
 
 .display {
